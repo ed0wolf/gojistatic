@@ -24,7 +24,7 @@ func init() {
 		"Path to the top level assets folder")
 
 	//Add middleware
-	retreiver := &assets.FileAssetsRetriever{}
+	retreiver := &assets.FileAssetsRetriever{assetRoot}
 	handler := &assets.AssetsHandler{retreiver}
 	app.Use(handler.HandleAssets)
 
