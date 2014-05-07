@@ -1,6 +1,7 @@
 package gojistatic
 
 import (
+	"flag"
 	"log"
 	"net/http"
 
@@ -13,12 +14,17 @@ import (
 )
 
 var app *web.Mux
+var assetRoot string
 
 func init() {
 	app = web.New()
 
+	defaultAssetRoot := "./assets"
+	flag.StringVar(&assetRoot, "assets", defaultAssetRoot,
+		"Path to the top level assets folder")
+
 	//Add middleware
-	retreiver := &assets.FileAssetsRetriever{"./assets"}
+	retreiver := &assets.FileAssetsRetriever{}
 	handler := &assets.AssetsHandler{retreiver}
 	app.Use(handler.HandleAssets)
 
