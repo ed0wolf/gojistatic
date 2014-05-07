@@ -1,4 +1,4 @@
-package web
+package gojistatic
 
 import (
 	"log"
@@ -8,8 +8,8 @@ import (
 	"github.com/zenazn/goji/graceful"
 	"github.com/zenazn/goji/web"
 
-	"github.com/ed0wolf/hello/web/controllers"
-	"github.com/ed0wolf/hello/web/middleware/assets"
+	"github.com/ed0wolf/gojistatic/controllers"
+	"github.com/ed0wolf/gojistatic/middleware/assets"
 )
 
 var app *web.Mux
