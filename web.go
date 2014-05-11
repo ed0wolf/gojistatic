@@ -29,7 +29,8 @@ func init() {
 	app.Use(handler.HandleAssets)
 
 	//Add routes
-	controllers.AddRoutes(app)
+	app.Get("/ping", controllers.Ping)
+	app.Get("/", controllers.Index(assetRoot+"/index.html"))
 }
 
 func Start() {
